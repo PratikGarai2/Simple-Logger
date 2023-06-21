@@ -2,7 +2,7 @@
 
 const express = require("express");
 const app = express();
-app.use(express.json());
+app.use(express.text());
 
 const datas = [];
 
@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
   const data = req.body;
-  datas.push(data?.data || "<No data>");
+  datas.push(data || "<No data>");
   return res.json(data);
 });
 
